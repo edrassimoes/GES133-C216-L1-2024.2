@@ -1,0 +1,118 @@
+
+Menu de Opções:
+1. Cadastrar um jogo
+2. Exibir estoque
+3. Procurar um jogo
+4. Vender um jogo
+5. Sair
+Escolha uma opção: 
+1
+Qual o titulo do jogo? 
+Mario Wonder
+Qual o desenvolvedor do jogo? 
+Nintendo
+Qual a plataforma do jogo? 
+Switch
+Quantas unidades do jogo estão disponíveis? 
+8
+Produto adicionado ao estoque.
+
+Menu de Opções:
+1. Cadastrar um jogo
+2. Exibir estoque
+3. Procurar um jogo
+4. Vender um jogo
+5. Sair
+Escolha uma opção: 
+1
+Qual o titulo do jogo? 
+Black Myth: Wukong
+Qual o desenvolvedor do jogo? 
+Game Science
+Qual a plataforma do jogo? 
+PS5
+Quantas unidades do jogo estão disponíveis? 
+20
+Produto adicionado ao estoque.
+
+Menu de Opções:
+1. Cadastrar um jogo
+2. Exibir estoque
+3. Procurar um jogo
+4. Vender um jogo
+5. Sair
+Escolha uma opção: 
+1
+Qual o titulo do jogo? 
+Elden Ring
+Qual o desenvolvedor do jogo? 
+FromSoftware
+Qual a plataforma do jogo? 
+PS5
+Quantas unidades do jogo estão disponíveis? 
+16
+Produto adicionado ao estoque.
+
+Menu de Opções:
+1. Cadastrar um jogo
+2. Exibir estoque
+3. Procurar um jogo
+4. Vender um jogo
+5. Sair
+Escolha uma opção: 
+2
+Titulo: Mario Wonder, Desenvolvedor: Nintendo, Plataforma: Switch, Quantidade: 8
+Titulo: Black Myth: Wukong, Desenvolvedor: Game Science, Plataforma: PS5, Quantidade: 20
+Titulo: Elden Ring, Desenvolvedor: FromSoftware, Plataforma: PS5, Quantidade: 16
+
+Menu de Opções:
+1. Cadastrar um jogo
+2. Exibir estoque
+3. Procurar um jogo
+4. Vender um jogo
+5. Sair
+Escolha uma opção: 
+3
+Qual o titulo do jogo? 
+elden ring
+Titulo: Elden Ring, Desenvolvedor: FromSoftware, Plataforma: PS5, Quantidade: 16
+
+Menu de Opções:
+1. Cadastrar um jogo
+2. Exibir estoque
+3. Procurar um jogo
+4. Vender um jogo
+5. Sair
+Escolha uma opção: 
+4
+Qual o titulo do jogo? 
+mario wonder
+Quantas unidades serão vendidas? 
+2
+Venda realizada com sucesso! Restam 6 unidades no estoque.
+
+Menu de Opções:
+1. Cadastrar um jogo
+2. Exibir estoque
+3. Procurar um jogo
+4. Vender um jogo
+5. Sair
+Escolha uma opção: 
+2
+Titulo: Mario Wonder, Desenvolvedor: Nintendo, Plataforma: Switch, Quantidade: 6
+Titulo: Black Myth: Wukong, Desenvolvedor: Game Science, Plataforma: PS5, Quantidade: 20
+Titulo: Elden Ring, Desenvolvedor: FromSoftware, Plataforma: PS5, Quantidade: 16
+
+Menu de Opções:
+1. Cadastrar um jogo
+2. Exibir estoque
+3. Procurar um jogo
+4. Vender um jogo
+5. Sair
+Escolha uma opção: 
+5
+Saindo...
+
+
+** Process exited - Return Code: 0 **
+Press Enter to exit terminal
