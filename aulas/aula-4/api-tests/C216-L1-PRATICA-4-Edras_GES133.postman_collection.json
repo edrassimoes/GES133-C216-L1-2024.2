@@ -1,0 +1,377 @@
+{
+	"info": {
+		"_postman_id": "35a633b8-e145-4c94-b155-d10696658c68",
+		"name": "C216-L1-PRATICA-4-Edras_GES133",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32899336"
+	},
+	"item": [
+		{
+			"name": "GET - Listar todos os jogos",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response should be a list\", function () {\r",
+							"    pm.expect(pm.response.json()).to.be.an('array');\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/jogos/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"jogos",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET - Buscar Jogo por ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response should contain game details\", function () {\r",
+							"    pm.expect(pm.response.json()).to.have.property('titulo');\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/jogos/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"jogos",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST - Adicionar um Jogo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"pm.test(\"Response should contain confirmation message\", function () {\r",
+							"    pm.expect(pm.response.json().message).to.eql('Jogo cadastrado com sucesso!');\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"titulo\": \"PICO PARK 2\",\r\n  \"desenvolvedor\": \"TECOPARK\",\r\n  \"quantidade\": 8,\r\n  \"preco\": 21.95\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/jogos/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"jogos",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT - Vender um Jogo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response should confirm sale\", function () {\r",
+							"    pm.expect(pm.response.json().message).to.eql('Venda realizada com sucesso!');\r",
+							"});\r",
+							"\r",
+							"pm.sendRequest(\"http://127.0.0.1:8000/api/v1/jogos/1\", function (err, res) {\r",
+							"    pm.test(\"Quantidade do jogo foi atualizada\", function () {\r",
+							"        let jogo = res.json();\r",
+							"        pm.expect(jogo.quantidade).to.eql(19);\r",
+							"    });\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"quantidade\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/jogos/1/vender/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"jogos",
+						"1",
+						"vender",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PATCH - Atualizar Atributos de um Livro",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response should confirm update\", function () {\r",
+							"    pm.expect(pm.response.json().message).to.eql('Jogo atualizado com sucesso!');\r",
+							"});\r",
+							"\r",
+							"pm.sendRequest(\"http://127.0.0.1:8000/api/v1/jogos/3\", function (err, res) {\r",
+							"    pm.test(\"Os atributos do jogo foram atualizados\", function () {\r",
+							"        let jogo = res.json();\r",
+							"        pm.expect(jogo.titulo).to.eql(\"SILENT HILL 2\");\r",
+							"        pm.expect(jogo.desenvolvedor).to.eql(\"Konami\");\r",
+							"        pm.expect(jogo.quantidade).to.eql(30);\r",
+							"        pm.expect(jogo.preco).to.eql(349.9);\r",
+							"    });\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"titulo\": \"SILENT HILL 2\",\r\n    \"desenvolvedor\": \"Konami\",\r\n    \"quantidade\": 30,\r\n    \"preco\": 349.9\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/jogos/3",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"jogos",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE - Remover um Livro",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response should confirm deletion\", function () {\r",
+							"    pm.expect(pm.response.json().message).to.eql('Jogo removido com sucesso!');\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/jogos/4",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"jogos",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE - Remover Todos os Livros (RESETAR REPOSITORIO)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response should confirm deletion\", function () {\r",
+							"    pm.expect(pm.response.json().message).to.eql('Repositorio limpo com sucesso!');\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/jogos/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"jogos",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

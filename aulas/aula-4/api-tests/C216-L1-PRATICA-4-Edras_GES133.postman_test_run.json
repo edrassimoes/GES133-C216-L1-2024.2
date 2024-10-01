@@ -1,0 +1,293 @@
+{
+	"id": "3922fe59-4985-40c0-a803-df0998d948d9",
+	"name": "C216-L1-PRATICA-4-Edras_GES133",
+	"timestamp": "2024-10-01T22:04:37.784Z",
+	"collection_id": "32899336-35a633b8-e145-4c94-b155-d10696658c68",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 16,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2024-10-01T22:04:36.654Z",
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "df817e58-ef93-4b38-bacd-8120375c864a",
+			"name": "GET - Listar todos os jogos",
+			"url": "http://127.0.0.1:8000/api/v1/jogos/",
+			"time": 22,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response should be a list": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response should be a list": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				22
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response should be a list": true
+				}
+			]
+		},
+		{
+			"id": "e8c2cda5-0ec7-4d8e-97cf-7dc1416e6ac6",
+			"name": "GET - Buscar Jogo por ID",
+			"url": "http://127.0.0.1:8000/api/v1/jogos/1",
+			"time": 8,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response should contain game details": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response should contain game details": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				8
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response should contain game details": true
+				}
+			]
+		},
+		{
+			"id": "54294f38-b516-4f07-88f4-702cfe8127ea",
+			"name": "POST - Adicionar um Jogo",
+			"url": "http://127.0.0.1:8000/api/v1/jogos/",
+			"time": 11,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Status code is 201": true,
+				"Response should contain confirmation message": true
+			},
+			"testPassFailCounts": {
+				"Status code is 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response should contain confirmation message": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				11
+			],
+			"allTests": [
+				{
+					"Status code is 201": true,
+					"Response should contain confirmation message": true
+				}
+			]
+		},
+		{
+			"id": "a780c127-a8a2-4190-8c9f-7628d1c813ea",
+			"name": "PUT - Vender um Jogo",
+			"url": "http://127.0.0.1:8000/api/v1/jogos/1/vender/",
+			"time": 8,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response should confirm sale": true,
+				"Quantidade do jogo foi atualizada": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response should confirm sale": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Quantidade do jogo foi atualizada": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				8
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response should confirm sale": true,
+					"Quantidade do jogo foi atualizada": true
+				}
+			]
+		},
+		{
+			"id": "2da8178a-a440-40e8-ab74-651ddcb4ffac",
+			"name": "PATCH - Atualizar Atributos de um Livro",
+			"url": "http://127.0.0.1:8000/api/v1/jogos/3",
+			"time": 38,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response should confirm update": true,
+				"Os atributos do jogo foram atualizados": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response should confirm update": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Os atributos do jogo foram atualizados": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				38
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response should confirm update": true,
+					"Os atributos do jogo foram atualizados": true
+				}
+			]
+		},
+		{
+			"id": "ed48df98-5df8-4a8a-9546-f90cc40a79b5",
+			"name": "DELETE - Remover um Livro",
+			"url": "http://127.0.0.1:8000/api/v1/jogos/4",
+			"time": 8,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response should confirm deletion": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response should confirm deletion": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				8
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response should confirm deletion": true
+				}
+			]
+		},
+		{
+			"id": "8515de16-c052-4048-9fb0-87c8ffac92df",
+			"name": "DELETE - Remover Todos os Livros (RESETAR REPOSITORIO)",
+			"url": "http://127.0.0.1:8000/api/v1/jogos/",
+			"time": 6,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response should confirm deletion": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response should confirm deletion": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response should confirm deletion": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 101,
+	"collection": {
+		"requests": [
+			{
+				"id": "df817e58-ef93-4b38-bacd-8120375c864a",
+				"method": "GET"
+			},
+			{
+				"id": "e8c2cda5-0ec7-4d8e-97cf-7dc1416e6ac6",
+				"method": "GET"
+			},
+			{
+				"id": "54294f38-b516-4f07-88f4-702cfe8127ea",
+				"method": "POST"
+			},
+			{
+				"id": "a780c127-a8a2-4190-8c9f-7628d1c813ea",
+				"method": "PUT"
+			},
+			{
+				"id": "2da8178a-a440-40e8-ab74-651ddcb4ffac",
+				"method": "PATCH"
+			},
+			{
+				"id": "ed48df98-5df8-4a8a-9546-f90cc40a79b5",
+				"method": "DELETE"
+			},
+			{
+				"id": "8515de16-c052-4048-9fb0-87c8ffac92df",
+				"method": "DELETE"
+			}
+		]
+	}
+}
