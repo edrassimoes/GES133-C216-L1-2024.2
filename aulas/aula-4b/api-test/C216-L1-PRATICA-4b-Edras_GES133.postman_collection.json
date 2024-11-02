@@ -1,0 +1,453 @@
+{
+	"info": {
+		"_postman_id": "a8ebca83-19b1-42b0-b5fa-ec928bb4d3c0",
+		"name": "C216-L1-PRATICA-4b-Edras_GES133",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32899336"
+	},
+	"item": [
+		{
+			"name": "DELETE - Remover Todos os Jogos (RESETAR BANCO DE DADOS)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response should confirm deletion\", function () {\r",
+							"    pm.expect(pm.response.json().message).to.eql(\"Banco de dados limpo com sucesso!\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/jogos/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"jogos",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET - Listar todos os jogos",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response should be a list\", function () {\r",
+							"    pm.expect(pm.response.json()).to.be.an('array');\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/jogos/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"jogos",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET - Buscar Livro por ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response should contain book details\", function () {\r",
+							"    pm.expect(pm.response.json()).to.have.property('titulo');\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/jogos/3",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"jogos",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST - Adicionar um Jogo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"pm.test(\"Response should contain confirmation message\", function () {\r",
+							"    pm.expect(pm.response.json().message).to.eql('Jogo adicionado com sucesso!');\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"titulo\": \"Super Mario Party Jamboree\",\r\n  \"desenvolvedor\": \"Nintendo\",\r\n  \"quantidade\": 50,\r\n  \"preco\": 299.00\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/jogos/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"jogos",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT - Vender um Jogo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response should confirm sale\", function () {\r",
+							"    pm.expect(pm.response.json().message).to.eql('Venda realizada com sucesso!');\r",
+							"});\r",
+							"\r",
+							"pm.sendRequest(\"http://127.0.0.1:8000/api/v1/jogos/1\", function (err, res) {\r",
+							"    pm.test(\"Quantidade do jogo foi atualizada\", function () {\r",
+							"        let jogo = res.json();\r",
+							"        pm.expect(jogo.quantidade).to.eql(18);\r",
+							"    });\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"quantidade\": 2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/jogos/1/vender/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"jogos",
+						"1",
+						"vender",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET - Listar todas as vendas",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response should confirm sales details\", function () {\r",
+							"    let venda = pm.response.json()[0];\r",
+							"    pm.expect(venda.valor_venda).to.eql(598.0);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/vendas/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"vendas",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PATCH - Atualizar Atributos de um Jogo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response should confirm update\", function () {\r",
+							"    pm.expect(pm.response.json().message).to.eql('Jogo atualizado com sucesso!');\r",
+							"});\r",
+							"\r",
+							"pm.sendRequest(\"http://127.0.0.1:8000/api/v1/jogos/3\", function (err, res) {\r",
+							"    pm.test(\"Os atributos do jogo foram atualizados\", function () {\r",
+							"        let jogo = res.json();\r",
+							"        pm.expect(jogo.titulo).to.eql(\"SILENT HILL 2\");\r",
+							"        pm.expect(jogo.desenvolvedor).to.eql(\"Konami\");\r",
+							"        pm.expect(jogo.quantidade).to.eql(10);\r",
+							"        pm.expect(jogo.preco).to.eql(300.00);\r",
+							"    });\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"titulo\": \"SILENT HILL 2\",\r\n  \"desenvolvedor\": \"Konami\",\r\n  \"quantidade\": 10,\r\n  \"preco\": 300.00\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/jogos/3",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"jogos",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE - Remover um Livro",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response should confirm deletion\", function () {\r",
+							"    pm.expect(pm.response.json().message).to.eql('Jogo removido com sucesso!');\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/jogos/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"jogos",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE - Remover Todos os Jogos (RESETAR BANCO DE DADOS)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response should confirm deletion\", function () {\r",
+							"    pm.expect(pm.response.json().message).to.eql('Banco de dados limpo com sucesso!');\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/jogos/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"jogos",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
