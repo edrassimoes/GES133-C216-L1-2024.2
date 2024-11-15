@@ -106,10 +106,10 @@ async def vender_jogo(jogo_id: int, venda: VendaJogo):
         valor_venda = jogo['preco'] * venda.quantidade
 
         insert_venda_query = """
-            INSERT INTO vendas (jogo_id, quantidade_vendida, valor_venda) 
-            VALUES ($1, $2, $3)
+            INSERT INTO vendas (jogo_id, titulo, quantidade_vendida, valor_venda) 
+            VALUES ($1, $2, $3, $4)
         """
-        await conn.execute(insert_venda_query, jogo_id, venda.quantidade, valor_venda)
+        await conn.execute(insert_venda_query, jogo_id, livro['titulo'], venda.quantidade, valor_venda)
 
         jogo_atualizado = dict(jogo)
         jogo_atualizado['quantidade'] = nova_quantidade
